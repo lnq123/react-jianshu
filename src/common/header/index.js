@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import {connect } from 'react-redux'
+import { connect } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 
-import * as actionCreators from './store/actionCreators'
-
+import * as actionCreators from "./store/actionCreators";
 
 import {
   HeaderWrapper,
@@ -13,12 +12,36 @@ import {
   NavSearch,
   Addition,
   Button,
-  SearchWrapper
+  SearchWrapper,
+  SearchInfo,
+  SearchInfoTitile,
+  SearchInfoSwitch,
+  SearchInfoItem,
+  SearchInfoList
 } from "./style";
 import MyIcon from "../../icon";
 
 class Header extends Component {
   
+  getListArea() {
+    if (this.props.focused) {
+      return (
+        <SearchInfo>
+          <SearchInfoTitile>
+            热门搜索
+            <SearchInfoSwitch>换一批</SearchInfoSwitch>
+          </SearchInfoTitile>
+          <SearchInfoList>
+            {this.props.list.map(item => {
+              return <SearchInfoItem key={item}>{item}</SearchInfoItem>;
+            })}
+          </SearchInfoList>
+        </SearchInfo>
+      );
+    } else {
+      return null;
+    }
+  }
 
   render() {
     return (
@@ -47,6 +70,7 @@ class Header extends Component {
               type="icon-fangdajing"
               className={this.props.focused ? "focused iconfont" : "iconfont"}
             />
+            {this.getListArea()}
           </SearchWrapper>
         </Nav>
         <Addition>
@@ -60,21 +84,26 @@ class Header extends Component {
     );
   }
 }
-const mapStateToProps =(state)=>{
-	return{
-		focused:state.header.get('focused')
-	}
-}
-const mapDispathToProps =(dispatch)=>{
-	return{
-		handleInputFocus(){
-			
-			dispatch(actionCreators.searchFocus())
-		},
-        handleInputBlur(){
-			
-			dispatch(actionCreators.searchBlur())
-		}
-	}
-}
-export default connect(mapStateToProps,mapDispathToProps)(Header)
+const mapStateToProps = state => {
+  return {
+    // focused:state.get('header').get('focused')
+    focused: state.getIn(["header", "focused"]),
+    list: state.getIn(["header", "list"])
+  };
+};
+const mapDispathToProps = dispatch => {
+  
+  return {
+    handleInputFocus() {
+      dispatch(actionCreators.getList());
+      dispatch(actionCreators.searchFocus());
+    },
+    handleInputBlur() {
+      dispatch(actionCreators.searchBlur());
+    }
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispathToProps
+)(Header);
