@@ -38,9 +38,11 @@ class Header extends Component {
 
     if (newList.length) {
       for (let i = (page - 1) * 10; i < page * 10; i++) {
-        pageList.push(
-          <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
-        );
+        if (newList[i]) {
+          pageList.push(
+            <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+          );
+        }
       }
     }
 
@@ -52,7 +54,10 @@ class Header extends Component {
             onMouseLeave={handleMouseLeave}
           >
             热门搜索
-            <SearchInfoSwitch onClick={() => handleChangePage(page, totalPage)}>
+            <SearchInfoSwitch
+              onClick={() => handleChangePage(page, totalPage, this.spin)}
+            >
+              <MyIcon type="icon-spin" className="spin" />
               换一批
             </SearchInfoSwitch>
           </SearchInfoTitile>
@@ -90,7 +95,7 @@ class Header extends Component {
             </CSSTransition>
             <MyIcon
               type="icon-fangdajing"
-              className={focused ? "focused iconfont" : "iconfont"}
+              className={focused ? "focused iconfont zoom" : "iconfont zoom"}
             />
             {this.getListArea()}
           </SearchWrapper>
