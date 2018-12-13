@@ -18,5 +18,27 @@ float:left;
 export const HomeRight=styled.div`
     width:240px;
     float:right;
-    background:blue;
+`
+export const TopicWrapper=styled.div`
+   padding:20px 0 10px 0;
+   overflow:hidden;
+   margin-left:-18px;
+`
+export const TopicItem=styled.div`
+    height:32px;
+    line-height:32px;
+    margin:0 0 18px 18px;
+    float:left;
+    padding-right:10px;
+    background:#f7f7f7;
+    font-size:14px;
+    color:#000;
+    border:1px solid #dcdcdc;
+    border-radius:4px;
+    .topic-pic{
+        width:32px;
+        height:32px;
+        float:left;
+        margin-right:10px;
+    }
 `
