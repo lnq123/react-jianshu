@@ -4,6 +4,7 @@ export const HeaderWrapper = styled.div`
   position: relative;
   height: 58px;
   border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 20px;
 `;
 
 export const Logo = styled.a.attrs({
@@ -123,6 +124,7 @@ export const SearchInfo = styled.div`
   width:240px;
   padding: 0 20px;
   box-shadow: 0 0 8px rgba(0,0,0,.2);
+  background:#fff;
 `
 export const SearchInfoTitile = styled.div`
 font-size: 14px;

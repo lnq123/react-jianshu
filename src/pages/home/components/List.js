@@ -9,8 +9,8 @@ class List extends Component {
       <div>
         {list.map(item => {
           return (
-            <ListItem>
-              <img className="pic" src={item.get("imgUrl")} />
+            <ListItem key={item.get("id")}>
+              <img alt='' className="pic" src={item.get("imgUrl")} />
               <ListInfo>
                 <h3 className="title">{item.get("title")}</h3>
                 <p className="body">{item.get("body")} </p>
