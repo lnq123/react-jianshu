@@ -66,8 +66,7 @@ export const NavSearch = styled.input.attrs({
   font-size: 14px;
   padding: 0 30px 0 20px;
   box-sizing: border-box;
-  margin-top: 9px;
-  margin-left: 20px;
+  margin: 9px 0px 0px 20px;
   color: #666;
   &::placeholder {
     color: #999;
@@ -86,8 +85,7 @@ export const Addition = styled.div`
 export const Button = styled.div`
  float:right;
  line-height:38px;
- margin-top:9px;
- margin-right：20px;
+ margin:9px 20px;
  padding:0 20px;
  border-radius:19px;
  border:1px solid #ec6149;
@@ -135,6 +133,7 @@ margin-bottom: 15px;
 `
 export const SearchInfoSwitch = styled.span`
 float:right;
+cursor:pointer;
 font-size:13px;
 .spin{
   display:block;
