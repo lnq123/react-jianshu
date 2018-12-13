@@ -162,5 +162,4 @@ color:#787878;
 
 export const SearchInfoList = styled.div`
 overflow:hidden;
-
 `
