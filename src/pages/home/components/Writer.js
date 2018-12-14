@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import { connect } from "react-redux";
 import { WriterWrapper, } from "../style";
-class Writter extends Component{
+class Writer extends Component{
     render(){
         return(
-            <WriterWrapper>Writter</WriterWrapper>
+            <WriterWrapper>Writer</WriterWrapper>
         )
     }
 }
-export default connect()(Writter)
+export default connect()(Writer)

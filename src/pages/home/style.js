@@ -6,6 +6,17 @@ export const HomeWrapper=styled.div`
 
     overflow:hidden;
 `
+export const BackTop=styled.div`
+position:fixed;
+right:100px;
+bottom:30px;
+width:60px;    
+height:60px;
+line-height:60px;
+text-align:center;
+border:1px solid #ccc;
+font-size:14px;
+`
 export const HomeLeft=styled.div`
 float:left;
     width:625px;
