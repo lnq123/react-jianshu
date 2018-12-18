@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { HomeWrapper, HomeLeft, HomeRight,BackTop } from "./style";
 import List from "./components/List";
 import Recommend from "./components/Recommend";
@@ -6,7 +6,8 @@ import Writer from "./components/Writer";
 import Topic from "./components/Topic";
 import {actionCreators} from './store'
 import {connect} from 'react-redux'
-class Home extends Component {
+class Home extends PureComponent {
+  
   render() {
     return (
       <HomeWrapper>
@@ -31,9 +32,9 @@ class Home extends Component {
     this.props.changeHomeData()
     this.bindEvents()
   }
-  componentWillUnmount(){
-    window.RemoveEventListener('scroll',this.props.changeScrollTopShow)
-  }
+  // componentWillUnmount(){
+  //   window.RemoveEventListener('scroll',this.props.changeScrollTopShow)
+  // }
   bindEvents(){
     window.addEventListener('scroll',this.props.changeScrollTopShow)
   }

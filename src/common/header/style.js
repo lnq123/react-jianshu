@@ -7,9 +7,8 @@ export const HeaderWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-export const Logo = styled.a.attrs({
-  href: "/"
-})`
+export const Logo = styled.div`
+
   position: absolute;
   top: 0;
   left: 0;
@@ -18,7 +17,7 @@ export const Logo = styled.a.attrs({
   height: 56px;
   background: url(${logoPic});
   background-size: contain;
-`;
+`
 export const Nav = styled.div`
   width: 960px;
   height: 100%;
