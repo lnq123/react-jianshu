@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { CSSTransition } from "react-transition-group";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import * as actionCreators from "./store/actionCreators";
 
 import {
@@ -68,15 +68,26 @@ class Header extends Component {
   }
 
   render() {
-    const { focused, handleInputFocus, handleInputBlur, list } = this.props;
+    const {
+      login,
+      focused,
+      handleInputFocus,
+      handleInputBlur,
+      list
+    } = this.props;
     return (
       <HeaderWrapper>
-        <Link to='/'>
-        <Logo /></Link>
+        <Link to="/">
+          <Logo />
+        </Link>
         <Nav>
           <NavItem className="left active">首页</NavItem>
           <NavItem className="left">下载App</NavItem>
-          <NavItem className="right">登录</NavItem>
+          {login ? (
+            <NavItem className="right">退出</NavItem>
+          ) : (
+            <Link to='/login'><NavItem className="right">登录</NavItem></Link>
+          )}
           <NavItem className="right">
             <MyIcon type="icon-Aa" />
           </NavItem>
@@ -117,15 +128,15 @@ const mapStateToProps = state => {
     list: state.getIn(["header", "list"]),
     page: state.getIn(["header", "page"]),
     mouseIn: state.getIn(["header", "mouseIn"]),
-    totalPage: state.getIn(["header", "totalPage"])
+    totalPage: state.getIn(["header", "totalPage"]),
+    login: state.getIn(["login", "login"])
   };
 };
 const mapDispathToProps = dispatch => {
   return {
     handleInputFocus(list) {
-      
-        (list.size === 0)&&dispatch(actionCreators.getList());
-       
+      list.size === 0 && dispatch(actionCreators.getList());
+
       dispatch(actionCreators.searchFocus());
     },
     handleInputBlur() {

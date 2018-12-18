@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import logoPic from "../../statics/jianshu.png";
 export const HeaderWrapper = styled.div`
+  z-index:1;
   position: relative;
-  height: 58px;
+  height: 56px;
   border-bottom: 1px solid #f0f0f0;
-  margin-bottom: 20px;
 `;
 
 export const Logo = styled.div`
