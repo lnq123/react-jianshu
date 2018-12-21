@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { ListItem, ListInfo, LoadMore } from "../style";
 import { actionCreators } from "../store";
 import { Link } from "react-router-dom";
+import faker from 'faker'
 class List extends PureComponent {
   render() {
     const { list, getMoreList, page } = this.props;
@@ -12,7 +13,7 @@ class List extends PureComponent {
           return (
             <Link key={index} to={"/detail/"+item.get('id')}>
               <ListItem>
-                <img alt="" className="pic" src={item.get("imgUrl")} />
+                <img className="pic"  alt={ faker.image.animals()} src={item.get("imgUrl")} />
                 <ListInfo>
                   <h3 className="title">{item.get("title")}</h3>
                   <p className="body">{item.get("body")} </p>

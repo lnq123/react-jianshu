@@ -89,7 +89,7 @@ class Header extends Component {
             </NavItem>
           ) : (
             <Link to="/login">
-              <NavItem  className="right">登录</NavItem>
+              <NavItem className="right">登录</NavItem>
             </Link>
           )}
           <NavItem className="right">
@@ -115,10 +115,12 @@ class Header extends Component {
           </SearchWrapper>
         </Nav>
         <Addition>
-          <Button className="writting">
-            <MyIcon type="icon-icon-pencil" />
-            写文章
-          </Button>
+          <Link to="/write">
+            <Button className="writting">
+              <MyIcon type="icon-icon-pencil" />
+              写文章
+            </Button>
+          </Link>
           <Button className="reg">注册</Button>
         </Addition>
       </HeaderWrapper>

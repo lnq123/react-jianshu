@@ -1,6 +1,8 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { TopicWrapper, TopicItem } from "../style";
+import faker from 'faker'
+
 class Topic extends PureComponent {
   render() {
       const {list} = this.props
@@ -9,7 +11,7 @@ class Topic extends PureComponent {
         {list.map(item => {
           return (
             <TopicItem key={item.get("id")}>
-              <img alt='' className="topic-pic" src={item.get("imgUrl")} />
+              <img   className="topic-pic" src={faker.image.animals()} />
               {item.get("title")}
             </TopicItem>
           );
